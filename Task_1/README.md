@@ -1,6 +1,5 @@
-# JAVA BACKEND APP
+# Java backend and REST API
 
-\~ Adithya Rajendran
 
 This Java backend application was developed as part of the Kaiburr Internship Selection Process. It serves as a task manager API that enables users to create, update, delete, and execute shell commands. Each task includes an ID, name, owner, command, and execution history, all stored in MongoDB.
 
