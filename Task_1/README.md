@@ -1,78 +1,105 @@
-# JAVA BACKEND APP
+# Java backend and REST API
 
-~ PRIYARANJAN S
 
-This Java backend app was created as a part of the Kaiburr Internship Selection Process and is a task manager API that lets users create, update, delete, and execute shell commands. Each task has a id, name, owner, command, and execution history, stored in MongoDB.
 
-When a task is posted or put, the app runs the command, captures its output, and stores the execution details (start time, end time, and result).
+This Java backend application was developed as part of the Kaiburr Internship Selection Process. It serves as a task manager API that enables users to create, update, delete, and execute shell commands. Each task includes an ID, name, owner, command, and execution history, all stored in MongoDB.
 
-You can interact with it via REST APIs using CURL, Postman, or a frontend.
+Upon task creation or update, the application executes the command, captures the output, and stores execution details such as start time, end time, and result.
 
-It also validates commands to block dangerous ones (eg: rm -rf).
+Users can interact with the API via REST endpoints using cURL, Postman, or a frontend interface.
 
-### Project Setup
+Additionally, the application includes command validation to prevent execution of harmful commands (e.g., `rm -rf`).
+
+---
+
+## 🚀 Project Setup
+
+To set up and run the application, use the following commands:
 
 ```bash
 mvn clean package
 mvn spring-boot:run
 ```
-![Spring initialized](SCREENSHOTS/spring-backend.png)
-This screenshot shows the Spring Boot application being initialized.
 
-### API Endpoints
+### Application Initialization
 
-Viewing All Tasks on Web
+![Spring Boot Initialization](SCREENSHOTS/spring-backend.png)
 
-![tasks endpoint](SCREENSHOTS/tasks-endpoint.png)
+---
 
-![search endpoint](SCREENSHOTS/search-endpoint.png)
+## 🔗 API Endpoints
 
-![tasks endpoint](SCREENSHOTS/specific-task.png)
+### View All Tasks in the Web Interface
 
+![Tasks Endpoint](SCREENSHOTS/tasks-endpoint.png)
 
-### API Testing using cURL
+### Search for a Specific Task
 
-POST (Create & Execute a Task)
+![Search Endpoint](SCREENSHOTS/search-endpoint.png)
+
+### View Task Details
+
+![Specific Task](SCREENSHOTS/specific-task.png)
+
+---
+
+## 🛠 API Testing with cURL
+
+### 📌 Create & Execute a Task (POST)
 ```bash
 curl -X POST http://localhost:8080/tasks \
      -H "Content-Type: application/json" \
      -d '{
            "id": "123",
            "name": "Print Hello",
-           "owner": "John Smith",
-           "command": "echo Hello World!"
+           "owner": "Adithya Rajendran",
+           "command": "echo Hello, World!"
          }'
 ```
-![post](SCREENSHOTS/curl-post.png)
+![POST Request](SCREENSHOTS/curl-post.png)
 
-GET All Tasks
+---
+
+### 📌 Retrieve All Tasks (GET)
 ```bash
 curl -X GET http://localhost:8080/tasks
 ```
-![all tasks](SCREENSHOTS/curl-getTasks.png)
+![GET All Tasks](SCREENSHOTS/curl-getTasks.png)
 
-Search Tasks by Name
+---
+
+### 📌 Search Tasks by Name (GET)
 ```bash
 curl -X GET "http://localhost:8080/tasks/search?name=Print"
 ```
-![search](SCREENSHOTS/curl-search.png)
+![Search Tasks](SCREENSHOTS/curl-search.png)
 
-Update a Task (PUT)
+---
+
+### 📌 Update an Existing Task (PUT)
 ```bash
 curl -X PUT http://localhost:8080/tasks/123 \
      -H "Content-Type: application/json" \
      -d '{
            "id": "123",
            "name": "Updated Task",
-           "owner": "John Smith",
+           "owner": "Adithya Rajendran",
            "command": "echo Task Updated!"
          }'
 ```
-![put](SCREENSHOTS/curl-update.png)
+![PUT Request](SCREENSHOTS/curl-update.png)
 
-Delete a Task
+---
+
+### 📌 Delete a Task (DELETE)
 ```bash
 curl -X DELETE http://localhost:8080/tasks/123
 ```
-![delete](SCREENSHOTS/curl-delete.png)
+![DELETE Request](SCREENSHOTS/curl-delete.png)
+
+---
+
+### 📜 Copyright
+
+Copyright © 2025 Kaiburr LLC. All rights reserved.
 
