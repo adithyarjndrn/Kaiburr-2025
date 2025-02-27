@@ -1,6 +1,3 @@
-Here’s a refined and well-structured version of your Kubernetes deployment documentation with a professional touch:  
-
----
 
 # **Kubernetes Deployment - Task 2**  
 **Author: Adithya Rajendran**  
