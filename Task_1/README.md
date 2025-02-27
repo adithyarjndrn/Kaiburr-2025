@@ -65,6 +65,7 @@ curl -X POST http://localhost:8080/tasks \
            "command": "echo Hello, World!"
          }'
 ```
+![image](https://github.com/user-attachments/assets/f790e832-5caa-417c-8148-cd692cd8f613)
 
 
 
@@ -75,6 +76,9 @@ curl -X POST http://localhost:8080/tasks \
 ```bash
 curl -X GET http://localhost:8080/tasks
 ```
+![image](https://github.com/user-attachments/assets/b3db018e-fabc-466d-8f06-194f0683a37b)
+
+![image](https://github.com/user-attachments/assets/e473aab5-9d79-4563-aa3e-4c95e61d688f)
 
 
 
@@ -86,23 +90,15 @@ curl -X GET http://localhost:8080/tasks
 curl -X GET "http://localhost:8080/tasks/search?name=Print"
 ```
 
+![image](https://github.com/user-attachments/assets/a7c8ec55-5025-4f79-bbcd-e0c1f282cd62)
 
 
 ---
 
-### 📌 Update an Existing Task (PUT)
+### 📌 PUT a task (PUT)
 
-```bash
-curl -X PUT http://localhost:8080/tasks/123 \
-     -H "Content-Type: application/json" \
-     -d '{
-           "id": "123",
-           "name": "Updated Task",
-           "owner": "Adithya Rajendran",
-           "command": "echo Task Updated!"
-         }'
-```
 
+![PUT](https://github.com/user-attachments/assets/143b8e1c-6ec8-405a-852a-eb5b4122bedc)
 
 
 ---
@@ -112,6 +108,8 @@ curl -X PUT http://localhost:8080/tasks/123 \
 ```bash
 curl -X DELETE http://localhost:8080/tasks/123
 ```
+
+![image](https://github.com/user-attachments/assets/3de1910c-20a6-4728-a17b-2e5ced0bba0c)
 
 
 
