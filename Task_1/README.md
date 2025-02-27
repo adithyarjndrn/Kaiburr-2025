@@ -1,6 +1,6 @@
-# Java backend and REST API
+# JAVA BACKEND APP
 
-
+\~ Adithya Rajendran
 
 This Java backend application was developed as part of the Kaiburr Internship Selection Process. It serves as a task manager API that enables users to create, update, delete, and execute shell commands. Each task includes an ID, name, owner, command, and execution history, all stored in MongoDB.
 
@@ -23,7 +23,19 @@ mvn spring-boot:run
 
 ### Application Initialization
 
-![Spring Boot Initialization](SCREENSHOTS/spring-backend.png)
+
+---
+
+## 🛠 Software Requirements
+
+To run this application, ensure you have the following installed:
+
+- **Java 17** or later
+- **Maven** (Apache Maven 3.8+)
+- **MongoDB** (NoSQL Database)
+- **Postman** (for API testing, optional)
+- **cURL** (for API testing via command line, optional)
+- **Git** (for version control, optional)
 
 ---
 
@@ -31,21 +43,19 @@ mvn spring-boot:run
 
 ### View All Tasks in the Web Interface
 
-![Tasks Endpoint](SCREENSHOTS/tasks-endpoint.png)
 
 ### Search for a Specific Task
 
-![Search Endpoint](SCREENSHOTS/search-endpoint.png)
 
 ### View Task Details
 
-![Specific Task](SCREENSHOTS/specific-task.png)
 
 ---
 
 ## 🛠 API Testing with cURL
 
 ### 📌 Create & Execute a Task (POST)
+
 ```bash
 curl -X POST http://localhost:8080/tasks \
      -H "Content-Type: application/json" \
@@ -56,27 +66,33 @@ curl -X POST http://localhost:8080/tasks \
            "command": "echo Hello, World!"
          }'
 ```
-![POST Request](SCREENSHOTS/curl-post.png)
+
+
 
 ---
 
 ### 📌 Retrieve All Tasks (GET)
+
 ```bash
 curl -X GET http://localhost:8080/tasks
 ```
-![GET All Tasks](SCREENSHOTS/curl-getTasks.png)
+
+
 
 ---
 
 ### 📌 Search Tasks by Name (GET)
+
 ```bash
 curl -X GET "http://localhost:8080/tasks/search?name=Print"
 ```
-![Search Tasks](SCREENSHOTS/curl-search.png)
+
+
 
 ---
 
 ### 📌 Update an Existing Task (PUT)
+
 ```bash
 curl -X PUT http://localhost:8080/tasks/123 \
      -H "Content-Type: application/json" \
@@ -87,18 +103,22 @@ curl -X PUT http://localhost:8080/tasks/123 \
            "command": "echo Task Updated!"
          }'
 ```
-![PUT Request](SCREENSHOTS/curl-update.png)
+
+
 
 ---
 
 ### 📌 Delete a Task (DELETE)
+
 ```bash
 curl -X DELETE http://localhost:8080/tasks/123
 ```
-![DELETE Request](SCREENSHOTS/curl-delete.png)
+
+
 
 ---
 
 ### 📜 Copyright
 
 Copyright © 2025 Kaiburr LLC. All rights reserved.
+
