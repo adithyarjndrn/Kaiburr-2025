@@ -16,7 +16,6 @@ alias k=kubectl
 minikube status
 ```
 📌 **Minikube status:**  
-![Minikube Status](SCREENSHOTS/minikube-status.png)  
 
 ---
 
