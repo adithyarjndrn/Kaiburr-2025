@@ -102,4 +102,3 @@ curl -X DELETE http://localhost:8080/tasks/123
 ### 📜 Copyright
 
 Copyright © 2025 Kaiburr LLC. All rights reserved.
-
