@@ -1,118 +1,140 @@
-# Kubernetes Deployment - Task 2
+Here’s a refined and well-structured version of your Kubernetes deployment documentation with a professional touch:  
 
-This part involves containerizing the Task Manager App and deploying it to Kubernetes. The application runs inside a Minikube cluster and uses a BusyBox pod to execute tasks dynamically. MongoDB is deployed with Persistent Volumes (PV) to ensure data consistency.
+---
 
-### Cluster Setup
+# **Kubernetes Deployment - Task 2**  
+**Author: Adithya Rajendran**  
 
-The **Kubernetes cluster** was set up on my local machine using **Minikube v1.33.1**.
-The **Container Runtime Interface (CRI)** used is **Docker**.
+This task involves **containerizing** the Task Manager application and deploying it on a **Kubernetes cluster** using **Minikube**. The application runs inside the Minikube environment, with tasks executed dynamically through **BusyBox pods**. **MongoDB** is deployed with a **Persistent Volume (PV)** to ensure data persistence.  
 
+---
+
+## **1️⃣ Cluster Setup**  
+
+The **Kubernetes cluster** was configured locally using **Minikube v1.33.1**, with **Docker** as the **Container Runtime Interface (CRI)**.  
+
+To verify cluster status:  
 ```bash
 alias k=kubectl
 minikube status
 ```
-![status](SCREENSHOTS/minikube-status.png)
+📌 **Minikube status:**  
+![Minikube Status](SCREENSHOTS/minikube-status.png)  
 
-### Containerizing the Application
+---
 
-**Tool Used: Docker**
+## **2️⃣ Containerizing the Application**  
 
-The Task Manager API was packaged into a Docker image.
+### **🛠️ Tools Used: Docker**  
 
-**Build & Push Docker Image**
+The Task Manager API was packaged into a **Docker image** and pushed to a repository for deployment.  
+
+#### **Building & Pushing the Docker Image**  
 ```bash
 docker build -t myrepo/taskmanager:latest .
 docker push myrepo/taskmanager:latest
 ```
-![build](SCREENSHOTS/dockerbuild-cmd.png)
-![img](SCREENSHOTS/dockerimg-hub.png)
+📌 **Docker Build & Push Logs:**  
+![Docker Build](SCREENSHOTS/dockerbuild-cmd.png)  
+![Docker Hub Image](SCREENSHOTS/dockerimg-hub.png)  
 
-### Kubernetes Manifests
+---
 
-The following Kubernetes objects were used:
+## **3️⃣ Kubernetes Deployment**  
 
-> Deployment: Runs the Task Manager API
-
-> Service: Exposes the API (Type: NodePort)
-
-> MongoDB Deployment & Service: Runs MongoDB and exposes it internally.
-
-> Persistent Volume: Ensures MongoDB data persists.
+### **Kubernetes Objects Used:**  
+✔️ **Deployment** - Runs the Task Manager API  
+✔️ **Service** - Exposes the API (Type: NodePort)  
+✔️ **MongoDB Deployment & Service** - Manages MongoDB operations  
+✔️ **Persistent Volume (PV)** - Ensures MongoDB data persistence  
 
 ```bash
 k get all
 ```
-![l](SCREENSHOTS/manifest-list.png)
-![apply](SCREENSHOTS/get-all.png)
+📌 **Deployed Resources:**  
+![Manifest List](SCREENSHOTS/manifest-list.png)  
+![Get All Resources](SCREENSHOTS/get-all.png)  
 
-### API Testing (cURL)
+---
 
-Ping API
+## **4️⃣ API Testing (cURL Requests)**  
 
+### **✅ Ping API Test**  
 ```bash
 curl -X GET http://<MINIKUBE-IP>:<PORT>/tasks/ping
 ```
-![ping](SCREENSHOTS/ping.png)
+📌 **Response:**  
+![Ping Test](SCREENSHOTS/ping.png)  
 
-POST a Task
-
+### **✅ Create a Task (POST Request)**  
 ```bash
 curl -X POST http://<MINIKUBE-IP>:<PORT>/tasks \
      -H "Content-Type: application/json" \
      -d '{
            "id": "123",
            "name": "K8s Task",
-           "owner": "Priyaranjan",
+           "owner": "Adithya Rajendran",
            "command": "echo Kubernetes Running!"
          }'
 ```
-![postt](SCREENSHOTS/post-check.png)
+📌 **Task Creation Response:**  
+![POST Task](SCREENSHOTS/post-check.png)  
 
-### BusyBox Pod Execution
+---
 
-A BusyBox pod is dynamically created to execute each task instead of running commands locally.
+## **5️⃣ Dynamic Task Execution (BusyBox Pods)**  
 
-**Task Execution Process:**
-> A BusyBox pod is created dynamically when a task is executed.
+Instead of running commands locally, a **BusyBox pod** is created dynamically for each task execution.  
 
-> The task command runs inside the BusyBox pod
-
-> The logs from the BusyBox pod are retrieved and stored in MongoDB.
-
+### **Task Execution Process:**  
+🔹 The system spawns a **BusyBox pod** dynamically upon task execution.  
+🔹 The **task command runs** inside the BusyBox pod.  
+🔹 Logs from the pod are **retrieved and stored** in MongoDB.  
 
 ```bash
 k get event --sort-by=.metadata.creationTimestamp | tail -n 6
 k logs <podname>
 ```
-![BusyBox](SCREENSHOTS/busybox-creation.png)
-![BusyBox2](SCREENSHOTS/busybox-creation2.png)
+📌 **BusyBox Execution Logs:**  
+![BusyBox Logs](SCREENSHOTS/busybox-creation.png)  
+![BusyBox Execution](SCREENSHOTS/busybox-creation2.png)  
 
-### MongoDB Data Persistence (Persistent Volume - PV)
+---
 
-A Persistent Volume (PV) is used to store MongoDB data even after the pod is deleted.
+## **6️⃣ MongoDB Data Persistence with Persistent Volumes (PV)**  
 
-**Testing Process:**
+A **Persistent Volume (PV)** ensures that MongoDB data is not lost, even if the pod is restarted or deleted.  
 
-> Delete the MongoDB Pod.
+### **Testing Data Persistence:**  
+
+1️⃣ **Delete the MongoDB Pod:**  
 ```bash
 k describe pvc/<mongo-pvc>
 k delete po/<mongo-pod-name>
 ```
-The ReplicaSet ensures that the pod is recreated successfully
+📌 **MongoDB PVC Details:**  
+![PVC Description](SCREENSHOTS/mongo-pvc.png)  
 
-> Check if the data still exists in MongoDB
-
+2️⃣ **Verify MongoDB Data Exists After Restart:**  
 ```bash
 k get pod
-k exec -it <mongo-db-pod> -- mongosh "mongodb://admin:password@mongodb-service:27017/taskdb?authSource=admin" //mongosh
-db.tasks.find().pretty() // to view if the data still exists even after the pod restarts.
+k exec -it <mongo-db-pod> -- mongosh "mongodb://admin:password@mongodb-service:27017/taskdb?authSource=admin"
+db.tasks.find().pretty()
 ```
-![pvc](SCREENSHOTS/mongo-pvc.png)
-![pvc2](SCREENSHOTS/mongo-pvc2.png)
-![pvc3](SCREENSHOTS/mongo-pvc3.png)
+📌 **Persistent Data Verification:**  
+![MongoDB PVC Verification 1](SCREENSHOTS/mongo-pvc2.png)  
+![MongoDB PVC Verification 2](SCREENSHOTS/mongo-pvc3.png)  
 
-### Conclusion:
+---
 
-> The Task Manager app was successfully containerized and deployed on Minikube.
-> BusyBox pods were used to dynamically execute tasks.
-> MongoDB data persisted even after pod deletion using Persistent Volumes.
+## **7️⃣ Conclusion**  
+
+✅ The **Task Manager application** was successfully containerized and deployed in a **Minikube Kubernetes cluster**.  
+✅ Tasks are executed dynamically using **BusyBox pods**, ensuring efficient execution.  
+✅ **MongoDB data persistence** is maintained through **Persistent Volumes (PV)**.  
+
+This deployment showcases **scalability, reliability, and dynamic execution** within a Kubernetes environment. 🚀  
+
+---
+
+This version improves readability, structure, and presentation. Let me know if you need any further refinements! 🚀
