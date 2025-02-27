@@ -1,11 +1,5 @@
 # KAIBURR - ASSESSMENT
 
-**Hi, my name is Adithya.**
-
-I am a passionate software developer with expertise in Java, Spring Boot, Kubernetes, and full-stack development. I have experience in designing and implementing REST APIs, working with cloud technologies, and building scalable applications. I enjoy solving complex problems and continuously improving my skills in backend and frontend development.
-
-Click [Here](https://github.com/adithyarjndrn/amfoss-tasks/tree/main/introspection) to go to my **Introspection**.
-
 | **Task List**                                                            | **Description**                            | **Status**    |
 | ------------------------------------------------------------------------ | ------------------------------------------ | ------------- |
 | [Task 1](https://github.com/adithyarjndrn/amfoss-tasks/tree/main/task-1) | Java backend and REST API example          | **Completed** |
