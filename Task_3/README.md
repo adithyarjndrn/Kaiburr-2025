@@ -28,19 +28,22 @@ This form enables users to create new tasks by providing:
 - **Owner Name**  
 - **Shell Command to Execute**  
 
+**SCREENSHOTS**
+Main Page
 ![image](https://github.com/user-attachments/assets/9107d309-8aff-4ffa-867f-b1e6104b7547)
 
-**Main page**
+New Task
 ![image](https://github.com/user-attachments/assets/b3ba2b52-331d-45be-bbf2-943daa5d5207)
 
 
-**Search**
+Search
 ![image](https://github.com/user-attachments/assets/4bdec841-43dd-446b-abca-9ddc02c8f491)
+
+**POST MAN VERIFICATION**
+![image](https://github.com/user-attachments/assets/c47cf6ca-6fac-4351-bc7b-e906594e8acd)
+
 
 
 ### **Conclusion**  
 This project demonstrates a **full-stack task management application**, integrating a **React frontend**, a **Spring Boot backend**, and **MongoDB storage**, developed by **Adithya Rajendran**. 🚀  
 
----
-
-Let me know if you want any further refinements! 😊
