@@ -69,19 +69,7 @@ GET and POST USING POSTMAN
 
 ![kubget](https://github.com/user-attachments/assets/f53c66da-519b-4921-baa9-167947877a7a)
 
-### **✅ Create a Task (POST Request)**  
-```bash
-curl -X POST http://<MINIKUBE-IP>:<PORT>/tasks \
-     -H "Content-Type: application/json" \
-     -d '{
-           "id": "123",
-           "name": "K8s Task",
-           "owner": "Adithya Rajendran",
-           "command": "echo Kubernetes Running!"
-         }'
-```
-📌 **Task Creation Response:**  
-![POST Task](SCREENSHOTS/post-check.png)  
+
 
 ---
 
