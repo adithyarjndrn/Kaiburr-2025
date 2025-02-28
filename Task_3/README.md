@@ -28,14 +28,15 @@ This form enables users to create new tasks by providing:
 - **Owner Name**  
 - **Shell Command to Execute**  
 
-### **Backend Connectivity**  
-The frontend interacts with the **Spring Boot REST API**, sending **POST** and **GET** requests to manage tasks efficiently.  
+![image](https://github.com/user-attachments/assets/9107d309-8aff-4ffa-867f-b1e6104b7547)
 
-#### **Search Component**  
-Users can **search for tasks** by name using this component, making task management more efficient.  
+**Main page**
+![image](https://github.com/user-attachments/assets/b3ba2b52-331d-45be-bbf2-943daa5d5207)
 
-### **Backend Data Verification**  
-Once a task is created, it is stored in **MongoDB** and can be retrieved via API calls.  
+
+**Search**
+![image](https://github.com/user-attachments/assets/4bdec841-43dd-446b-abca-9ddc02c8f491)
+
 
 ### **Conclusion**  
 This project demonstrates a **full-stack task management application**, integrating a **React frontend**, a **Spring Boot backend**, and **MongoDB storage**, developed by **Adithya Rajendran**. 🚀  
