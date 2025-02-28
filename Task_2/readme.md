@@ -12,10 +12,11 @@ The **Kubernetes cluster** was configured locally using **Minikube v1.33.1**, wi
 
 To verify cluster status:  
 ```bash
-alias k=kubectl
+
 minikube status
 ```
 📌 **Minikube status:**  
+![image](https://github.com/user-attachments/assets/0e12e894-92b6-4d24-8270-46be7a20fb15)
 
 ---
 
@@ -31,8 +32,9 @@ docker build -t myrepo/taskmanager:latest .
 docker push myrepo/taskmanager:latest
 ```
 📌 **Docker Build & Push Logs:**  
-![Docker Build](SCREENSHOTS/dockerbuild-cmd.png)  
-![Docker Hub Image](SCREENSHOTS/dockerimg-hub.png)  
+![build](https://github.com/user-attachments/assets/a1d4b024-cd3a-46f8-b6d9-51e635af8204)
+ ![hub](https://github.com/user-attachments/assets/bf7fab06-9cf1-4f7e-8fa5-17656b9df600)
+ 
 
 ---
 
@@ -45,22 +47,27 @@ docker push myrepo/taskmanager:latest
 ✔️ **Persistent Volume (PV)** - Ensures MongoDB data persistence  
 
 ```bash
-k get all
+kubetl get all
 ```
 📌 **Deployed Resources:**  
-![Manifest List](SCREENSHOTS/manifest-list.png)  
-![Get All Resources](SCREENSHOTS/get-all.png)  
+![image](https://github.com/user-attachments/assets/8a632e2d-e3f0-4675-9f6f-c1d84af1d4de)
+
+
+![image](https://github.com/user-attachments/assets/75568b72-75ca-4fa3-87d5-a1d906d1635e)
+
+![kget](https://github.com/user-attachments/assets/be52bc1d-bbbf-4843-986b-108d21bceca5)
 
 ---
 
 ## **4️⃣ API Testing (cURL Requests)**  
 
 ### **✅ Ping API Test**  
-```bash
-curl -X GET http://<MINIKUBE-IP>:<PORT>/tasks/ping
-```
+
+GET and POST USING POSTMAN
 📌 **Response:**  
-![Ping Test](SCREENSHOTS/ping.png)  
+![POST](https://github.com/user-attachments/assets/38c00511-de4c-4f6e-8792-853bc2182e23)
+
+![kubget](https://github.com/user-attachments/assets/f53c66da-519b-4921-baa9-167947877a7a)
 
 ### **✅ Create a Task (POST Request)**  
 ```bash
