@@ -1,46 +1,45 @@
-# Getting Started with Create React App
+Here's a rephrased version incorporating your name:  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## **React Frontend for Task Management**  
+Developed by **Adithya Rajendran**  
 
-In the project directory, you can run:
+This project involves building a **React-based User Interface** for the **Spring Boot Backend** previously implemented. It enables users to create, search, and manage tasks, where each task represents a shell command to be executed. The backend stores task data in **MongoDB**, while the frontend provides an intuitive interface for seamless interaction.  
 
-### `npm start`
+### **Installation & Running the Application**  
+```sh
+npm install  # Install dependencies  
+npm start    # Start the React development server  
+```  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### **Application Overview**  
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### **Home Page (Task Management Dashboard)**  
+The main dashboard allows users to:  
+- Search for tasks by name.  
+- Create new tasks by specifying an ID, name, owner, and command.  
+- View existing tasks along with their execution status.  
 
-### `npm test`
+#### **New Task Component**  
+This form enables users to create new tasks by providing:  
+- **Task ID**  
+- **Task Name**  
+- **Owner Name**  
+- **Shell Command to Execute**  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **Backend Connectivity**  
+The frontend interacts with the **Spring Boot REST API**, sending **POST** and **GET** requests to manage tasks efficiently.  
 
-### `npm run build`
+#### **Search Component**  
+Users can **search for tasks** by name using this component, making task management more efficient.  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **Backend Data Verification**  
+Once a task is created, it is stored in **MongoDB** and can be retrieved via API calls.  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **Conclusion**  
+This project demonstrates a **full-stack task management application**, integrating a **React frontend**, a **Spring Boot backend**, and **MongoDB storage**, developed by **Adithya Rajendran**. 🚀  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Let me know if you want any further refinements! 😊
