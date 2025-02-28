@@ -2,9 +2,7 @@
 # **Kubernetes Deployment - Task 2**  
 **Author: Adithya Rajendran**  
 
-This task involves **containerizing** the Task Manager application and deploying it on a **Kubernetes cluster** using **Minikube**. The application runs inside the Minikube environment, ( not completed )*with tasks executed dynamically through **BusyBox pods**. **MongoDB** is deployed with a **Persistent Volume (PV)** to ensure data persistence.  *
-
----
+This task involves **containerizing** the Task Manager application and deploying it on a **Kubernetes cluster** using **Minikube**. The application runs inside the Minikube environment.
 
 ## **1️⃣ Cluster Setup**  
 
